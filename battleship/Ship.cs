@@ -10,6 +10,8 @@ namespace battleship
     {
         public int size;
         public string name;
+        public string location;
+        public string orientation;
         public Ship()
         {
 

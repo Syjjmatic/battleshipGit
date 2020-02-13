@@ -13,12 +13,14 @@ namespace battleship
         public Gameboard setGameBoard;
         public Gameboard attackGameBoard;
         public string enterAName;
+        public List<Ship> ships;
         
         public Player()
         {
             score = 0;
             setGameBoard = new Gameboard();
             attackGameBoard = new Gameboard();
+            ships = new List<Ship> { new AircraftCarrier(), new Battleship(), new Submarine(), new Destroyer() };
         }
 
         public void GetName(string player)

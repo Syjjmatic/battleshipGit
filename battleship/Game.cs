@@ -91,12 +91,19 @@ namespace battleship
             player1.GetName("Player 1");
             player2.GetName("Player 2");
         }
+
+        public void SetGameBoard()
+        {
+            player1.SetGameboard();
+            player2.SetGameboard();
+        }
         public void init()
         {
             Introduction();
             DisplayRules();
             GameSetUp(GameMode());
             GetNames();
+            SetGameBoard();
             Console.ReadLine();
 
         }
