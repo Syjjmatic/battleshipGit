@@ -12,9 +12,12 @@ namespace battleship
         public string displayRules;
         public List<Ship> ships;
         public string gameModeString;
+        public string enterToContinue;
+        public string gameMode;
         public Game()
         {
             ships = new List<Ship> { new AircraftCarrier(), new Battleship(), new Submarine(), new Destroyer() };
+            enterToContinue = "\nPress [Enter] to continue...";
         }
 
         public void Introduction()
@@ -36,23 +39,35 @@ namespace battleship
                 "Ships will be placed horizontally or vertically on a 20x20 grid. \nThe ship's size cannot extend past the boundaries of the grid.\n\n" +
                 "Once the ships are placed, players will go back and forth, voicing\nto the opposite player a location that they'd like to attack.\n" +
                 "Once an attack has been declared, the opponent's ship will be 'hit'\nor 'missed.' The first player to sink all of his or her opponent's ships...\n\n" +
-                "... WINS! ";
-            Console.WriteLine(displayRules);
+                "... WINS!\n";
+            Console.WriteLine(displayRules + enterToContinue);
+            Console.ReadLine();
+
         }
 
-        public void GameMode()
+        public string GameMode()
         {
             Console.Clear();
             gameModeString = "Which game mode do you want to play?\n\n" +
                 "[1] One player\n" +
                 "[2] Two players\n" +
                 "[3] Watch the AI battle it out!";
-
+            Console.WriteLine(gameModeString);
+            gameMode = Console.ReadLine();
+            while (gameMode != "1" && gameMode != "2" && gameMode != "3")
+            {
+                Console.Clear();
+                string error = "You have entered an incorrect input. Try again.\n\n";
+                Console.WriteLine(error + gameModeString);
+                gameMode = Console.ReadLine();
+            }
+            return gameMode;
         }
         public void init()
         {
             Introduction();
             DisplayRules();
+            GameMode();
             Console.ReadLine();
 
         }
