@@ -14,6 +14,9 @@ namespace battleship
         public string gameModeString;
         public string enterToContinue;
         public string gameMode;
+        Player player1;
+        Player player2;
+
         public Game()
         {
             ships = new List<Ship> { new AircraftCarrier(), new Battleship(), new Submarine(), new Destroyer() };
@@ -63,11 +66,37 @@ namespace battleship
             }
             return gameMode;
         }
+
+        public void GameSetUp(string players)
+        {
+            if (players == "1")
+            {
+                player1 = new HumanP();
+                player2 = new AiP();
+            }
+            else if (players == "2")
+            {
+                player1 = new HumanP();
+                player2 = new HumanP();
+            }
+            else if (players == "3")
+            {
+                player1 = new AiP();
+                player2 = new AiP();
+            }
+        }
+
+        public void GetNames()
+        {
+            player1.GetName("Player 1");
+            player2.GetName("Player 2");
+        }
         public void init()
         {
             Introduction();
             DisplayRules();
-            GameMode();
+            GameSetUp(GameMode());
+            GetNames();
             Console.ReadLine();
 
         }

@@ -12,6 +12,9 @@ namespace battleship
         {
 
         }
+        public override void SetGameboard()
+        {
 
+        }
     }
 }
