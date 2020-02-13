@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace battleship
 {
-    class HumanP : Player
+    class Gameboard
     {
-        public HumanP()
+        int[,] twoDArray;
+        public Gameboard()
         {
-
+            twoDArray = new int[20, 20];
         }
-
     }
 }

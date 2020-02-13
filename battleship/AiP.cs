@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace battleship
 {
-    class AiP
+    class AiP : Player
     {
+        public AiP()
+        {
+
+        }
+
     }
 }
