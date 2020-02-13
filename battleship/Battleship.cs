@@ -8,5 +8,9 @@ namespace battleship
 {
     class Battleship
     {
+        public Battleship()
+        {
+
+        }
     }
 }
